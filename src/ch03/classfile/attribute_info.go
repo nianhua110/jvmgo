@@ -12,8 +12,9 @@ func readAttributes(reader *ClassReader, cp ConstantPool) []AttributeInfo {
 
 	fmt.Printf(" readAttributes count %v\n", attriubtesCount)
 	for i := range attributes {
-		attributes[i] = readAttribute(reader, cp)
 		fmt.Printf(" readAttributes i %v\n", i)
+		attributes[i] = readAttribute(reader, cp)
+
 	}
 	fmt.Println("readAttributes return")
 	return attributes
@@ -21,7 +22,9 @@ func readAttributes(reader *ClassReader, cp ConstantPool) []AttributeInfo {
 
 func readAttribute(reader *ClassReader, cp ConstantPool) AttributeInfo {
 	attrNameIndex := reader.readUint16()
+	//error
 	fmt.Printf("readAttribute attrNameIndex %v \n", attrNameIndex)
+	fmt.Printf("cp: %v", cp)
 	attrName := cp.getUtf8(attrNameIndex)
 	attrLen := reader.readUint32()
 	attrInfo := newAttributeInfo(attrName, attrLen, cp)

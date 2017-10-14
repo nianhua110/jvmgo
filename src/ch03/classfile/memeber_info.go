@@ -14,6 +14,7 @@ func readMembers(reader *ClassReader, cp ConstantPool) []*MemberInfo {
 	memberCount := reader.readUint16()
 	fmt.Println("readMemebers count")
 	fmt.Printf("%v", memberCount)
+	//fmt.Printf("cp: %v", cp)
 	members := make([]*MemberInfo, memberCount)
 	for i := range members {
 		members[i] = readMember(reader, cp)

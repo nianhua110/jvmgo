@@ -7,23 +7,25 @@ type ConstantPool []ConstantInfo
 func readConstantPool(reader *ClassReader) ConstantPool {
 	cpCount := int(reader.readUint16())
 	cp := make([]ConstantInfo, cpCount)
+
 	for i := 1; i < cpCount; i++ {
 		cp[i] = readConstantInfo(reader, cp)
-		fmt.Printf(" constant pool itera : %v, %v\n", i, cp[i])
+		//		fmt.Printf(" constant pool itera : %v, %v\n", i, cp[i])
 		switch cp[i].(type) {
 		case *ConstantLongInfo, *ConstantDoubleInfo:
 			i++
 
 		}
 	}
-	fmt.Printf("constant pool %v", cp)
+	fmt.Printf("constant pool %v , size: %v\n", cp, len(cp))
+
 	return cp
 }
 func (self ConstantPool) getConstantInfo(index uint16) ConstantInfo {
 	if cpInfo := self[index]; cpInfo != nil {
 		return cpInfo
 	}
-	panic("Invalid constant pool index!")
+	panic(fmt.Errorf("Invalid constant pool index: %v", index))
 }
 
 func (self ConstantPool) getNameAndType(index uint16) (string, string) {
