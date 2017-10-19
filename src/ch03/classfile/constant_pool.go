@@ -17,7 +17,7 @@ func readConstantPool(reader *ClassReader) ConstantPool {
 
 		}
 	}
-	fmt.Printf("constant pool %v , size: %v\n", cp, len(cp))
+	//	fmt.Printf("constant pool %v , size: %v\n", cp, len(cp))
 
 	return cp
 }

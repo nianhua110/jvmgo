@@ -26,10 +26,10 @@ func Parse(classData []byte) (cf *ClassFile, err error) {
 			}
 		}
 	}()
-	fmt.Print("Parse 29")
+	//fmt.Print("Parse 29")
 	//fmt.Printf("%v", classData)
 	cr := &ClassReader{classData}
-	fmt.Print("Parse cr")
+	//fmt.Print("Parse cr")
 	cf = &ClassFile{}
 	cf.read(cr)
 	return
@@ -40,20 +40,26 @@ func (self *ClassFile) read(reader *ClassReader) {
 	self.readAndCheckVersion(reader)
 	self.constantPool = readConstantPool(reader)
 
-	fmt.Print("reader self.constantpool")
+	//	fmt.Print("reader self.constantpool\n")
 
 	self.accessFlags = reader.readUint16()
-	self.thisClass = reader.readUint16()
-	self.interfaces = reader.readUint16s()
+	//fmt.Printf("reader accessFlags %v\n", self.AccessFlags())
 
-	fmt.Print("reader self.constantpool49")
+	self.thisClass = reader.readUint16()
+	//fmt.Printf("reader this class %v\n", self.thisClass)
+	self.superClass = reader.readUint16()
+	//	fmt.Printf("reader supe class %v\n", self.superClass)
+
+	self.interfaces = reader.readUint16s()
+	//fmt.Printf("reader interfaces %v\n", self.interfaces)
+	//	fmt.Print("reader self.constantpool49")
 
 	self.fields = readMembers(reader, self.constantPool)
-	fmt.Println("reader self.constantpool fields")
+	//fmt.Println("reader self.constantpool fields")
 	self.methods = readMembers(reader, self.constantPool)
 	self.attributes = readAttributes(reader, self.constantPool)
 
-	fmt.Println("reader self.constantpool 55")
+	//fmt.Println("reader self.constantpool 55")
 
 }
 

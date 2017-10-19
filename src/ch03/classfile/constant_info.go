@@ -25,11 +25,12 @@ type ConstantInfo interface {
 
 func readConstantInfo(reader *ClassReader, cp ConstantPool) ConstantInfo {
 	tag := reader.readUint8()
-	fmt.Printf(" readConstantInfo: %v \n", tag)
+	fmt.Printf(" readConstantInfo, cp: %v \n", tag)
 	c := newConstantInfo(tag, cp)
-	fmt.Printf(" cp: %v", tag)
+	//fmt.Printf(" cp: %v\n", tag)
 
 	c.readInfo(reader)
+	fmt.Printf("val: %v\n", c)
 	return c
 }
 

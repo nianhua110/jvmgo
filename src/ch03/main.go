@@ -60,3 +60,6 @@ func printClassInfo(cf *classfile.ClassFile) {
 	}
 
 }
+/*./bin/ch03 -Xjre "/home/kyle/workspace/jvmgo/classtest/target/classes/ch03" ClassFileTest 
+
+*/
