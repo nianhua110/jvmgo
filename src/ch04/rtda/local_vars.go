@@ -6,7 +6,7 @@ type LocalVars []Slot
 
 func newLocalVars(maxLocals uint) LocalVars {
 	if maxLocals > 0 {
-		return mak([]Slot, maxLocals)
+		return make([]Slot, maxLocals)
 	}
 	return nil
 }
@@ -21,7 +21,7 @@ func (self LocalVars) GetInt(index uint) int32 {
 
 func (self LocalVars) SetFloat(index uint, val float32) {
 	bits := math.Float32bits(val)
-	self[index].num = bits
+	self[index].num = int32(bits)
 }
 func (self LocalVars) GetFloat(index uint) float32 {
 	bits := uint32(self[index].num)
@@ -35,11 +35,11 @@ func (self LocalVars) SetLong(index uint, val int64) {
 func (self LocalVars) GetLong(index uint) int64 {
 	low := uint32(self[index].num)
 	high := uint32(self[index+1].num)
-	return int64(hight)<<32 | int64(low)
+	return int64(high)<<32 | int64(low)
 }
 
-func (self LocalVars) SetDobule(index uint, val float64) {
-	bits := math.Float364bits(val)
+func (self LocalVars) SetDouble(index uint, val float64) {
+	bits := math.Float64bits(val)
 	self.SetLong(index, int64(bits))
 }
 func (self LocalVars) GetDouble(index uint) float64 {

@@ -21,7 +21,7 @@ func main() {
 func startJVM(cmd *Cmd) {
 
 	frame := rtda.NewFrame(100, 100)
-	testLocalVars(farme.LocalVars())
+	testLocalVars(frame.LocalVars())
 	testOperandStack(frame.OperandStack())
 	/*cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
 	fmt.Printf("classpath: %s class:%s ,args: %v \n",

@@ -33,7 +33,7 @@ func (self *OperandStack) PushFloat(val float32) {
 
 func (self *OperandStack) PopFloat() float32 {
 	self.size--
-	bits = uint32(self.slots[self.size].num)
+	bits := uint32(self.slots[self.size].num)
 	return math.Float32frombits(bits)
 }
 func (self *OperandStack) PushLong(val int64) {

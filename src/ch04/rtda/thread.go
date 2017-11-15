@@ -6,9 +6,9 @@ type Thread struct {
 }
 
 func NewThread() *Thread {
-  return &Thread(
-    stack : newStack(1024),
-  )
+	return &Thread{
+		stack: newStack(1024),
+	}
 }
 
 func (self *Thread) PC() int {
@@ -20,13 +20,13 @@ func (self *Thread) SetPC(pc int) {
 }
 
 func (self *Thread) PushFrame(frame *Frame) {
-  self.stack.push(frame)
+	self.stack.push(frame)
 }
 
 func (self *Thread) PopFrame() *Frame {
-  return self.stack.pop()
+	return self.stack.pop()
 }
 
 func (self *Thread) CurrentFrame() *Frame {
- return self.stack.top();
+	return self.stack.top()
 }
