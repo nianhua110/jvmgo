@@ -1,6 +1,7 @@
 package loads
 
 import "ch05/rtda"
+import "ch05/instructions/base"
 
 type ALOAD struct {
 	base.Index8Instruction

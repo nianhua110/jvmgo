@@ -1,6 +1,7 @@
 package strores
 
 import "ch05/rtda"
+import "ch05/instructions/base"
 
 type DSTORE struct {
 	base.Index8Instruction
