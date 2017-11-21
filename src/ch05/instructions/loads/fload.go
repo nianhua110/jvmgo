@@ -1,6 +1,9 @@
 package loads
 
-import "ch05/rtda"
+import (
+	"ch05/instructions/base"
+	"ch05/rtda"
+)
 
 type FLOAD struct {
 	base.Index8Instruction
@@ -27,7 +30,7 @@ func _fload(frame *rtda.Frame, index uint) {
 	frame.OperandStack().PushFloat(val)
 }
 func (self *FLOAD) Execute(frame *rtda.Frame) {
-	_fload(frame, uint(self.index))
+	_fload(frame, uint(self.Index))
 }
 func (self *FLOAD_0) Execute(frame *rtda.Frame) {
 	_fload(frame, 0)

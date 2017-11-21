@@ -1,9 +1,10 @@
 package constants
 
-import "ch04/rtda"
+import "ch05/rtda"
+import "ch05/instructions/base"
 
 type BIPUSH struct {
-	bal int8
+	val int8
 }
 
 type SIPUSH struct {

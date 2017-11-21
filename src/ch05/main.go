@@ -1,10 +1,12 @@
 package main
 
-import "fmt"
-
-import "ch04/classpath"
-import "ch04/classfile"
-import "ch04/rtda"
+import (
+	"ch05/classfile"
+	"ch05/classpath"
+	"ch05/rtda"
+	"fmt"
+	"strings"
+)
 
 func main() {
 	cmd := parseCmd()
@@ -20,17 +22,20 @@ func main() {
 
 func startJVM(cmd *Cmd) {
 
-	frame := rtda.NewFrame(100, 100)
-	testLocalVars(frame.LocalVars())
-	testOperandStack(frame.OperandStack())
-	/*cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
+	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
 	fmt.Printf("classpath: %s class:%s ,args: %v \n",
 		cp, cmd.class, cmd.args)
 	className := strings.Replace(cmd.class, ".", "/", -1)
 	cf := loadClass(className, cp)
-	fmt.Println(cmd.class)
-	printClassInfo(cf)
-	*/
+	mainMethod := getMainMethod(cf)
+	if main != nil {
+		interpret(mainMethod)
+	} else {
+		fmt.Printf("Main method not found in class %s\n", cmd.class)
+	}
+	//fmt.Println(cmd.class)
+	//printClassInfo(cf)
+
 }
 
 func testLocalVars(vars rtda.LocalVars) {
@@ -102,6 +107,16 @@ func printClassInfo(cf *classfile.ClassFile) {
 
 }
 
-/*./bin/ch04 -Xjre "/home/kyle/workspace/jvmgo/classtest/target/classes/ch04" ClassFileTest
+func getMainMethod(cf *classfile.ClassFile) *classfile.MemberInfo {
+	for _, m := range cf.Methods() {
+		if m.Name() == "main" && m.Descriptor() == "([Ljava/lang/String;]V)" {
+			return m
+		}
+	}
+	return nil
+}
 
- */
+/*./bin/ch04 -Xjre "/home/kyle/workspace/jvmgo/classtest/target/classes/ch04" ClassFileTest
+./bin/ch05 -Xjre "/usr/lib/jvm/jdk1.8.0_131"  -cp ./classtest/target/class-test-1.0-SNAPSHOT.jar ch05.GaussTest
+
+*/

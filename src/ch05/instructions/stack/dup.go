@@ -1,6 +1,9 @@
 package stack
 
-import "ch05/rtda"
+import (
+	"ch05/instructions/base"
+	"ch05/rtda"
+)
 
 type DUP struct {
 	base.NoOperandsInstruction

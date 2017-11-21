@@ -1,42 +1,46 @@
 package math
+
+import (
+	"ch05/instructions/base"
+	"ch05/rtda"
+)
+
 type DNEG struct {
-  base.NoOperandsInstruction
+	base.NoOperandsInstruction
 }
 
-func (self *DNEG) Execute(frame *rtda.Frame)  {
-  stack := frame.OperandStack()
-  v1 :=stack PopDouble()
-  stack.PushDouble(-v1)
+func (self *DNEG) Execute(frame *rtda.Frame) {
+	stack := frame.OperandStack()
+	v1 := stack.PopDouble()
+	stack.PushDouble(-v1)
 }
-
 
 type FNEG struct {
-  base.NoOperandsInstruction
+	base.NoOperandsInstruction
 }
 
-func (self *FNEG) Execute(frame *rtda.Frame)  {
-  stack := frame.OperandStack()
-  v1 :=stac.PopFloat()
-  stack.PushFloat(-v1)
+func (self *FNEG) Execute(frame *rtda.Frame) {
+	stack := frame.OperandStack()
+	v1 := stack.PopFloat()
+	stack.PushFloat(-v1)
 }
 
 type INEG struct {
-  base.NoOperandsInstruction
+	base.NoOperandsInstruction
 }
 
-func (self *INEG) Execute(frame *rtda.Frame)  {
-  stack := frame.OperandStack()
-  v1 :=stack.PopInt()
-  stack.PushInt(-v1)
+func (self *INEG) Execute(frame *rtda.Frame) {
+	stack := frame.OperandStack()
+	v1 := stack.PopInt()
+	stack.PushInt(-v1)
 }
-
 
 type LNEG struct {
-  base.NoOperandsInstruction
+	base.NoOperandsInstruction
 }
 
-func (self *DNEG) Execute(frame *rtda.Frame)  {
-  stack := frame.OperandStack()
-  v1 :=stack PopLong()
-  stack.PushLong(-v1)
+func (self *LNEG) Execute(frame *rtda.Frame) {
+	stack := frame.OperandStack()
+	v1 := stack.PopLong()
+	stack.PushLong(-v1)
 }

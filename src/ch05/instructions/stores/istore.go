@@ -1,6 +1,9 @@
 package strores
 
-import "ch05/rtda"
+import (
+	"ch05/instructions/base"
+	"ch05/rtda"
+)
 
 type ISTORE struct {
 	base.Index8Instruction
@@ -28,7 +31,7 @@ func _istore(frame *rtda.Frame, index uint) {
 }
 
 func (self *ISTORE) Execute(frame *rtda.Frame) {
-	_istore(frame, uint(self.index))
+	_istore(frame, uint(self.Index))
 }
 
 func (self *ISTORE_0) Execute(frame *rtda.Frame) {

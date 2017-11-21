@@ -10,18 +10,18 @@ type DCMPG struct {
 }
 
 func (self *DCMPG) Execute(frame *rtda.Frame) {
-	_fcmp(frame, true)
+	_dcmp(frame, true)
 }
 
-type DCMLL struct {
+type DCMPL struct {
 	base.NoOperandsInstruction
 }
 
 func (self *DCMPL) Execute(frame *rtda.Frame) {
-	_fcmp(frame, false)
+	_dcmp(frame, false)
 }
 
-func _fcmp(frame *rtda.Frame, gFlag bool) {
+func _dcmp(frame *rtda.Frame, gFlag bool) {
 	stack := frame.OperandStack()
 	v2 := stack.PopDouble()
 	v1 := stack.PopDouble()

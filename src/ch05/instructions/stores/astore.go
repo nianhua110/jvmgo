@@ -29,7 +29,7 @@ func _atore(frame *rtda.Frame, index uint) {
 }
 
 func (self *ASTORE) Execute(frame *rtda.Frame) {
-	_atore(frame, uint(self.index))
+	_atore(frame, uint(self.Index))
 }
 
 func (self *ASTORE_0) Execute(frame *rtda.Frame) {

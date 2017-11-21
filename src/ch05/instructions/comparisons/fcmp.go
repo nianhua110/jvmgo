@@ -13,7 +13,7 @@ func (self *FCMPG) Execute(frame *rtda.Frame) {
 	_fcmp(frame, true)
 }
 
-type FCMLL struct {
+type FCMPL struct {
 	base.NoOperandsInstruction
 }
 

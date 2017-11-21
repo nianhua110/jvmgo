@@ -1,9 +1,10 @@
 package conversions
 
 import (
-	"ch05/rtda"
 	"ch05/instructions/base"
+	"ch05/rtda"
 )
+
 type I2B struct {
 	base.NoOperandsInstruction
 }
@@ -24,31 +25,32 @@ type I2L struct {
 type I2D struct {
 	base.NoOperandsInstruction
 }
+
 func (self *I2B) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	d := stack.PopInt()
-	i := int32((int8(d))
+	i := int32(int8(d))
 	stack.PushInt(i)
 }
 
 func (self *I2C) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	d := stack.PopInt()
-	i := int32((int16(d))
-	stack.PushFloat(i)
+	i := int32(int16(d))
+	stack.PushInt(i)
 }
 
 func (self *I2S) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	d := stack.PopInt()
-	i := int32((int16(d))
-	stack.PushDouble(i)
+	i := int32(int16(d))
+	stack.PushInt(i)
 }
 func (self *I2L) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	d := stack.PopInt()
 	i := int64(d)
-	stack.PushInt(i)
+	stack.PushLong(i)
 }
 
 func (self *I2F) Execute(frame *rtda.Frame) {

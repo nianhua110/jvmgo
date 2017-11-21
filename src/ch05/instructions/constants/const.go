@@ -1,45 +1,54 @@
 package constants
 
 import "ch05/rtda"
+import "ch05/instructions/base"
 
 type ACONST_NULL struct {
 	base.NoOperandsInstruction
 }
+
 func (self *ACONST_NULL) Execute(frame *rtda.Frame) {
 	frame.OperandStack().PushRef(nil)
 }
-type DCONST_O struct {
+
+type DCONST_0 struct {
 	base.NoOperandsInstruction
 }
 
-
-func (self *DCONST_O) Execute(frame *rtda.Frame) {
+func (self *DCONST_0) Execute(frame *rtda.Frame) {
 	frame.OperandStack().PushDouble(0.0)
 }
-
-
 
 type DCONST_1 struct {
 	base.NoOperandsInstruction
 }
-type FCONST_O struct {
+
+func (self *DCONST_1) Execute(frame *rtda.Frame) {
+	frame.OperandStack().PushDouble(1.0)
+}
+
+type FCONST_0 struct {
 	base.NoOperandsInstruction
 }
-func (self *FCONST_O) Execute(frame *rtda.Frame) {
-	frame.OperandStack().PushFloat(0.0))
+
+func (self *FCONST_0) Execute(frame *rtda.Frame) {
+	frame.OperandStack().PushFloat(0.0)
 }
+
 type FCONST_1 struct {
 	base.NoOperandsInstruction
 }
 
 func (self *FCONST_1) Execute(frame *rtda.Frame) {
-	frame.OperandStack().PushFloat(1.0)))
+	frame.OperandStack().PushFloat(1.0)
 }
+
 type FCONST_2 struct {
 	base.NoOperandsInstruction
 }
+
 func (self *FCONST_2) Execute(frame *rtda.Frame) {
-	frame.OperandStack().PushFloat(2.00))
+	frame.OperandStack().PushFloat(2.00)
 }
 
 type ICONST_M1 struct {
@@ -47,62 +56,69 @@ type ICONST_M1 struct {
 }
 
 func (self *ICONST_M1) Execute(frame *rtda.Frame) {
-	frame.OperandStack().PushInt(-1))
+	frame.OperandStack().PushInt(-1)
 }
 
-type ICONST_O struct {
+type ICONST_0 struct {
 	base.NoOperandsInstruction
 }
+
 func (self *ICONST_0) Execute(frame *rtda.Frame) {
-	frame.OperandStack().PushInt(0))
+	frame.OperandStack().PushInt(0)
 }
+
 type ICONST_1 struct {
 	base.NoOperandsInstruction
 }
 
 func (self *ICONST_1) Execute(frame *rtda.Frame) {
-	frame.OperandStack().PushInt(1))
+	frame.OperandStack().PushInt(1)
 }
+
 type ICONST_2 struct {
 	base.NoOperandsInstruction
 }
 
 func (self *ICONST_2) Execute(frame *rtda.Frame) {
-	frame.OperandStack().PushInt(2))
+	frame.OperandStack().PushInt(2)
 }
+
 type ICONST_3 struct {
 	base.NoOperandsInstruction
 }
 
 func (self *ICONST_3) Execute(frame *rtda.Frame) {
-	frame.OperandStack().PushInt(3))
+	frame.OperandStack().PushInt(3)
 }
+
 type ICONST_4 struct {
 	base.NoOperandsInstruction
 }
 
 func (self *ICONST_4) Execute(frame *rtda.Frame) {
-	frame.OperandStack().PushInt(4))
+	frame.OperandStack().PushInt(4)
 }
+
 type ICONST_5 struct {
 	base.NoOperandsInstruction
 }
 
-
 func (self *ICONST_5) Execute(frame *rtda.Frame) {
-	frame.OperandStack().PushInt(5))
+	frame.OperandStack().PushInt(5)
 }
-type LCONST_O struct {
+
+type LCONST_0 struct {
 	base.NoOperandsInstruction
 }
 
-
 func (self *LCONST_0) Execute(frame *rtda.Frame) {
-	frame.OperandStack().PushLong(0))
+	frame.OperandStack().PushLong(0)
 }
+
 type LCONST_1 struct {
 	base.NoOperandsInstruction
 }
+
 func (self *LCONST_1) Execute(frame *rtda.Frame) {
-	frame.OperandStack().PushLong(1))
+	frame.OperandStack().PushLong(1)
 }

@@ -1,6 +1,7 @@
 package math
 
 import (
+	"ch05/instructions/base"
 	"ch05/rtda"
 	"math"
 )

@@ -4,7 +4,7 @@ import "ch05/rtda"
 
 //import "jvmgo/ch05/rtda"
 type Instruction interface {
-	FetchOperands(reader *ByteCodeReader)
+	FetchOperands(reader *BytecodeReader)
 	Execute(frame *rtda.Frame)
 }
 type NoOperandsInstruction struct {
@@ -27,7 +27,7 @@ type Index8Instruction struct {
 }
 
 func (self *Index8Instruction) FetchOperands(reader *BytecodeReader) {
-	self.Offset = uint(reader.ReadInt8())
+	self.Index = uint(reader.ReadInt8())
 }
 
 type Index16Instruction struct {
@@ -35,5 +35,5 @@ type Index16Instruction struct {
 }
 
 func (self *Index16Instruction) FetchOperands(reader *BytecodeReader) {
-	self.Offset = uint(reader.ReadInt16())
+	self.Index = uint(reader.ReadInt16())
 }

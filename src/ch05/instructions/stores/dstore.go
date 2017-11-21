@@ -29,7 +29,7 @@ func _dstore(frame *rtda.Frame, index uint) {
 }
 
 func (self *DSTORE) Execute(frame *rtda.Frame) {
-	_dstore(frame, uint(self.index))
+	_dstore(frame, uint(self.Index))
 }
 
 func (self *DSTORE_0) Execute(frame *rtda.Frame) {
